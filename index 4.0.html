@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pontos no Mapa — UNIFOR</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8Z" fill="#1F6F5C"/>
+      <circle cx="12" cy="10" r="3" fill="#F6F4EF"/>
+    </svg>
+    <div>
+      <p class="brand" style="font-size:20px;">Pontos no Mapa</p>
+      <p>Localização e acessibilidade no campus da UNIFOR — NEP 2025</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="painel">
+      <div>
+        <h2>Adicionar ponto</h2>
+        <form id="form-ponto" novalidate>
+          <div class="campo">
+            <label for="input-lat">Latitude</label>
+            <input type="text" id="input-lat" placeholder="Ex: -3.7793" inputmode="decimal" />
+          </div>
+          <div class="campo">
+            <label for="input-lng">Longitude</label>
+            <input type="text" id="input-lng" placeholder="Ex: -38.4810" inputmode="decimal" />
+          </div>
+          <div class="campo">
+            <label for="input-titulo">Nome do ponto (opcional)</label>
+            <input type="text" id="input-titulo" placeholder="Ex: Rampa Bloco D" />
+          </div>
+          <p class="erro" id="mensagem-erro"></p>
+          <button type="submit" class="primario">Adicionar ponto</button>
+        </form>
+      </div>
+
+      <hr class="divisor" />
+
+      <div>
+        <h2>Pontos no mapa (<span id="total-pontos">0</span>)</h2>
+        <ul class="lista-pontos" id="lista-pontos">
+          <li class="vazio">Nenhum ponto adicionado ainda.</li>
+        </ul>
+      </div>
+
+      <hr class="divisor" />
+
+      <p class="dica">
+        Clique diretamente no mapa para adicionar um ponto na posição exata,
+        ou arraste um marcador já existente para reposicioná-lo.
+      </p>
+    </div>
+
+    <div id="map"></div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDLokYlldBV5QLUgg8jCBBqhF7g58al66U&callback=initMap"
+  async
+  defer
+></script>
+
+</body>
+</html>
